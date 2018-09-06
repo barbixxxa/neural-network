@@ -40,23 +40,29 @@ def balance(w10, w11, w12, x0, x1, x2, d, y):  # ajustar os pesos - adjust the w
     return [w10, w11, w12]
 
 
+log = open("output.txt", "w")  # create/open the file to write the log
+
+
 for i in range(nC):
-    print('============ Cicle ' + str(i) + ' ============')
+    log.write('============ Cicle ' + str(i) + ' ============')
     for n in range(nEx):
-        print('\n-------------------------\nExample ' +
-              str(n) + '\n-------------------------')
-        print('weights: ' + str(w))
+        log.write('\n-------------------------\nExample ' +
+                  str(n) + '\n-------------------------\n')
+        log.write('weights: ' + str(w) + '\n')
 
         met1 = ((w[0] * x0) + (w[1] * x1[n]) + (w[2]*x2[n]))
-        print('met1 = ' + str(met1))
+        log.write('met1 = ' + str(met1) + '\n')
 
         y = f(met1)
-        print('f(met1) = ' + str(y) + '\nd = ' + str(d[n]))
+        log.write('f(met1) = ' + str(y) + '\nd = ' + str(d[n]) + '\n')
 
         if(y != d[n]):
-            print('f(met1) != d, adjust the weights\n-------------------------')
+            log.write(
+                'f(met1) != d, adjust the weights\n-------------------------\n')
             w = balance(w[0], w[1], w[2], x0, x1[n], x2[n], d[n], y)
         else:
-            print('-------------------------\nf(met1) == d')
-            print('-------------------------\nbest weights: ' +
-                  str(w) + '\n-------------------------\n')
+            log.write('\n-------------------------\nf(met1) == d\n')
+            log.write('\n-------------------------\nbest weights: ' +
+                      str(w) + '\n-------------------------\n')
+
+log.close()
