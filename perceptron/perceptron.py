@@ -34,13 +34,23 @@ def balance(w10, w11, w12, x0, x1, x2, d, y):  # ajustar os pesos - adjust the w
 
 
 for n in range(nEx):
-    y = f(w[0] * x0) + (w[1] * x1[n]) + (w[2]*x2[n])
+    print('\n-------------------------\nExample ' +
+          str(n) + '\n-------------------------')
+    print('weights: ' + str(w))
+
+    met1 = ((w[0] * x0) + (w[1] * x1[n]) + (w[2]*x2[n]))
+    print('met1 = ' + str(met1))
+
+    y = f(met1)
+    print('f(met1) = ' + str(y) + '\nd = ' + str(d[n]))
+
     if(y != d[n]):
-        print(w)
+        print('f(met1) != d, adjust the weights\n-------------------------')
         w = balance(w[0], w[1], w[2], x0, x1[n], x2[n], d[n], y)
-        print(w)
     else:
-        print(y)
+        print('-------------------------\nf(met1) == d')
+        print('-------------------------\nbest weights: ' +
+              str(w) + '\n-------------------------\n')
 
 
 #file = open("weights.txt", "w")
