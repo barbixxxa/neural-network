@@ -8,7 +8,7 @@ lRate = 1  # taxa de aprendizagem - learning rate between 0 and 1
 th = 1  # limiar - threshold
 
 # pesos sinapticos- weights
-w = df['weight']  # [0, 3, 3]  # w10,w11,w12
+w = df['weight'].values.tolist()  # [0, 3, 3]  # w10,w11,w12
 
 # sinal de entrada - input value
 x0 = 1  # x0 is always +1
