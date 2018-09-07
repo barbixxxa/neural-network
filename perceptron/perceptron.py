@@ -1,14 +1,15 @@
 import pandas as pd
+import random
 from pandas import ExcelWriter
 from pandas import ExcelFile
 
 df = pd.read_excel('exemplo1.xlsx', sheet_name='Sheet1')
 
-lRate = 1  # taxa de aprendizagem - learning rate between 0 and 1
+lRate = random.random()  # taxa de aprendizagem - learning rate between 0 and 1
 th = 1  # limiar - threshold
 
 # pesos sinapticos- weights
-w = df['weight'].values.tolist()  # [0, 3, 3]  # w10,w11,w12
+w = [random.random() for _ in range(0, 3)]  # w10,w11,w12
 
 # sinal de entrada - input value
 x0 = 1  # x0 is always +1
@@ -22,7 +23,7 @@ d = df['output']
 nEx = d.count()
 
 # numero de ciclos - cicles
-nC = 2
+nC = 10
 # ---------------------
 
 
