@@ -3,7 +3,7 @@ import random
 from pandas import ExcelWriter
 from pandas import ExcelFile
 
-df = pd.read_excel('exemplo1.xlsx', sheet_name='Sheet1')
+df = pd.read_excel('input.xlsx', sheet_name='Sheet1')
 
 lRate = random.random()  # taxa de aprendizagem - learning rate between 0 and 1
 th = 1  # limiar - threshold
