@@ -16,11 +16,11 @@ from pandas import ExcelFile
 df = pd.read_excel('input.xlsx', sheet_name='Sheet1')
 
 # taxa de aprendizagem - learning rate between 0 and 1
-lRate = 0.7  # dado pelo professor
+lRate = 0.79  # dado pelo professor
 
 # pesos sinapticos- weights
-w = [0.11, -0.83, -0.54, 0.25, 0.89, -0.14, -0.69, -0.48, 0.31, 0.77]
-# w = df['w'] nao esta pegando somente os valores, quebrando o log
+w = [-0.55, 0.27, -0.17, 0.90, 0.52, -0.47, -0.80, 0.47, -0.10, -0.40]
+#w = df['w'] #nao esta pegando somente os valores, quebrando o log
 
 # sinal de entrada - input value
 x0 = 1  # x0 is always +1
